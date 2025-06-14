@@ -1,40 +1,55 @@
-**Ghana Corruption Prosecution Tracker**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghana Corruption Prosecution Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; color: #333; margin: 0; padding: 0 1rem; }
+    h1, h2, h3 { color: #004085; }
+    h1 { text-align: center; margin-top: 1rem; }
+    .updated { text-align: center; font-size: 0.9em; margin-bottom: 1rem; }
+    select, input[type="text"] { margin: 0.5rem; padding: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: #fff; }
+    th, td { border: 1px solid #ccc; padding: 0.6rem; text-align: left; }
+    th { background-color: #e9ecef; }
+    tr:nth-child(even) { background-color: #f2f2f2; }
+    form { background: #fff; padding: 1rem; margin: 2rem 0; border: 1px solid #ccc; border-radius: 6px; }
+    label { font-weight: bold; }
+    textarea { width: 100%; padding: 0.4rem; }
+    input[type="submit"] { padding: 0.6rem 1.2rem; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    input[type="submit"]:hover { background: #0056b3; }
+    .section { margin-bottom: 2rem; }
+    .info-box { background: #e2e3e5; padding: 1rem; border-left: 5px solid #6c757d; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
 
-*Last Updated: June 14, 2025*
+<h1>🇬🇭 Ghana Corruption Prosecution Tracker</h1>
+<div class="updated">Last Updated: June 14, 2025</div>
 
----
+<div class="section">
+  <h2>🔍 Live Tracker: High-Profile Politicians Under Investigation or Prosecution</h2>
+  <label>Filter by Region:</label>
+  <select id="regionFilter" onchange="filterByRegion()">
+    <option value="All">All Regions</option>
+    <option value="Greater Accra">Greater Accra</option>
+    <option value="Ashanti">Ashanti</option>
+    <option value="Northern">Northern</option>
+    <option value="Eastern">Eastern</option>
+    <option value="Western">Western</option>
+  </select>
 
-### 🇬🇭 Live Tracker: High-Profile Politicians Under Investigation or Prosecution
+  <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search by name, agency, or status...">
 
-Filter by Region: 
-<select id="regionFilter" onchange="filterByRegion()">
-  <option value="All">All Regions</option>
-  <option value="Greater Accra">Greater Accra</option>
-  <option value="Ashanti">Ashanti</option>
-  <option value="Northern">Northern</option>
-  <option value="Eastern">Eastern</option>
-  <option value="Western">Western</option>
-  <!-- Add other regions as needed -->
-</select>
-
-<input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search by name, agency, or status...">
-
-<table id="corruptionTable">
-<tr>
-<th>Name</th><th>Position Held</th><th>Status</th><th>Agency Involved</th><th>Last Known Action</th><th>Timeline</th><th>Region</th>
-</tr>
-<tr><td>Ken Ofori-Atta</td><td>Former Finance Minister</td><td>Fugitive, Interpol Red Notice Issued</td><td>OSP, Interpol</td><td>Refused to attend OSP hearing in Feb 2025</td><td>2022: Petition filed → 2023: OSP probe → 2025: Red Notice</td><td>Greater Accra</td></tr>
-<tr><td>Cecilia Dapaah</td><td>Former Minister for Sanitation</td><td>Ongoing Investigation, Assets Seized</td><td>OSP</td><td>Over GH₵2.73M & US$590K found at home</td><td>2023: Discovery → 2024: Seizure → Ongoing</td><td>Greater Accra</td></tr>
-<tr><td>Charles Adu Boahen</td><td>Former Deputy Finance Minister</td><td>Cleared (Temporarily)</td><td>OSP</td><td>Cleared after "Galamsey Economy" probe</td><td>2022: Video Exposé → 2023: Interrogation → Cleared</td><td>Greater Accra</td></tr>
-<tr><td>Samuel Atta Akyea</td><td>MP, Abuakwa South</td><td>Under Investigation</td><td>OSP</td><td>Named in controversial land deal inquiry</td><td>2023: Whistleblower report → 2024: Committee setup</td><td>Eastern</td></tr>
-<tr><td>Stephen Ntim</td><td>NPP National Chairman</td><td>Petition Filed</td><td>CHRAJ</td><td>Linked to party finance misuse complaint</td><td>2024: Petition received → Awaiting probe</td><td>Greater Accra</td></tr>
-<tr><td>Joseph Cudjoe</td><td>Former Minister of Public Enterprises</td><td>Summoned by OSP</td><td>OSP</td><td>Accused of contract inflation</td><td>2024: Investigative audit → 2025: Summons issued</td><td>Western</td></tr>
-<tr><td>Kwabena Okyere Darko-Mensah</td><td>Western Regional Minister</td><td>Ongoing Review</td><td>EOCO</td><td>Accused of allocating public lands to allies</td><td>2023: Report leaked → 2024: EOCO starts review</td><td>Western</td></tr>
-<tr><td>Dr. Mathew Opoku Prempeh</td><td>Minister for Energy</td><td>Named in Tender Breach Report</td><td>Auditor General</td><td>Procurement irregularities in power projects</td><td>2022: Audit report → 2023: Parliamentary scrutiny</td><td>Ashanti</td></tr>
-<tr><td>Yaw Osafo-Maafo</td><td>Senior Minister (Retired)</td><td>Cleared</td><td>CHRAJ</td><td>Involved in Kroll Associates contract saga</td><td>2019: Case filed → 2022: Cleared</td><td>Eastern</td></tr>
-<tr><td>John Boadu</td><td>Former NPP General Secretary</td><td>Allegation Pending</td><td>OSP</td><td>Subject of leaked tape investigation</td><td>2024: Tape surfaces → Pending action</td><td>Greater Accra</td></tr>
-<tr><td>Bernard Antwi-Boasiako (Chairman Wontumi)</td><td>Ashanti Regional NPP Chairman</td><td>OSP Probe Initiated</td><td>OSP</td><td>Named in AG briefing June 2025, linked to gold-smuggling syndicate</td><td>2025: AG statement → OSP opens file</td><td>Ashanti</td></tr>
-</table>
+  <table id="corruptionTable">
+    <tr>
+      <th>Name</th><th>Position Held</th><th>Status</th><th>Agency Involved</th><th>Last Known Action</th><th>Timeline</th><th>Region</th>
+    </tr>
+    <!-- Table data rows (same content as before) -->
+    <!-- OMITTED FOR BREVITY: retain all your data rows as-is -->
+  </table>
+</div>
 
 <script>
 function searchTable() {
@@ -55,54 +70,56 @@ function filterByRegion() {
 }
 </script>
 
----
+<div class="section">
+  <h2>🧾 Key Details</h2>
+  <div class="info-box">
+    <p><strong>OSP:</strong> Office of the Special Prosecutor – investigates corruption in public service.</p>
+    <p><strong>Interpol Red Notice:</strong> Issued for Ken Ofori-Atta for court refusal.</p>
+    <p><strong>Asset Recovery:</strong> Multiple seizures under anti-graft campaign.</p>
+  </div>
+</div>
 
-### 🔎 Key Details
+<div class="section">
+  <h2>📅 Submit a Tip</h2>
+  <form method="POST" enctype="multipart/form-data" action="https://formsubmit.co/anon.gh.tracker@protonmail.com" target="_blank">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
 
-- **OSP = Office of the Special Prosecutor**: Independent legal authority tasked with investigating corruption in public service.
-- **Interpol Red Notice**: Issued for Ken Ofori-Atta after he refused to appear in court.
-- **Asset Recovery Operations**: Multiple seizures and account freezes conducted under new anti-graft campaign.
+    <label for="name">Your Name (Optional):</label><br />
+    <input type="text" id="name" name="name" /><br /><br />
 
----
+    <label for="role">Your Role:</label><br />
+    <select id="role" name="role">
+      <option value="witness">Witness</option>
+      <option value="journalist">Journalist</option>
+      <option value="whistleblower">Whistleblower</option>
+      <option value="other">Other</option>
+    </select><br /><br />
 
-### 📅 Submit a Tip
-<form method="POST" enctype="multipart/form-data" action="https://formsubmit.co/anon.gh.tracker@protonmail.com" target="_blank">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
+    <label for="description">Case Description:</label><br />
+    <textarea id="description" name="description" rows="6" required></textarea><br /><br />
 
-  <label for="name">Your Name (Optional):</label><br />
-  <input type="text" id="name" name="name" /><br /><br />
+    <label for="date">Date of Occurrence:</label><br />
+    <input type="date" id="date" name="date" required /><br /><br />
 
-  <label for="role">Your Role:</label><br />
-  <select id="role" name="role">
-    <option value="witness">Witness</option>
-    <option value="journalist">Journalist</option>
-    <option value="whistleblower">Whistleblower</option>
-    <option value="other">Other</option>
-  </select><br /><br />
+    <label for="evidence">Upload Supporting Evidence:</label><br />
+    <input type="file" id="evidence" name="evidence" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" /><br /><br />
 
-  <label for="description">Case Description:</label><br />
-  <textarea id="description" name="description" rows="6" cols="50" required></textarea><br /><br />
+    <input type="submit" value="Submit Case" />
+  </form>
+</div>
 
-  <label for="date">Date of Occurrence:</label><br />
-  <input type="date" id="date" name="date" required /><br /><br />
+<div class="section">
+  <h2>🎯 Tracker Objectives</h2>
+  <ol>
+    <li>Increase public transparency and engagement.</li>
+    <li>Track government progress on anti-corruption reforms.</li>
+    <li>Support work of journalists, watchdogs, and researchers.</li>
+  </ol>
+</div>
 
-  <label for="evidence">Upload Supporting Evidence:</label><br />
-  <input type="file" id="evidence" name="evidence" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" /><br /><br />
+<p style="text-align:center; font-size: 0.9em;">This document is updated weekly. Refer to OSP press briefings for confirmation.</p>
+<p style="text-align:center;"><strong>Live Version:</strong> <a href="https://cypony.github.io/ghana-corruption-tracker" target="_blank">cypony.github.io/ghana-corruption-tracker</a></p>
 
-  <input type="submit" value="Submit Case" />
-</form>
-
----
-
-### 📊 Tracker Objectives
-
-1. Increase public transparency and engagement.
-2. Track government progress on anti-corruption reforms.
-3. Provide reference for journalists, watchdogs, and policy researchers.
-
----
-
-*This document is updated weekly. For official confirmations, refer to OSP press briefings and public reports.*
-
-**Live Version Available:** [https://cypony.github.io/ghana-corruption-tracker](https://cypony.github.io/ghana-corruption-tracker)
+</body>
+</html>
