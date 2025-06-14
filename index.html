@@ -21,6 +21,7 @@
     input[type="submit"]:hover { background: #0056b3; }
     .section { margin-bottom: 2rem; }
     .info-box { background: #e2e3e5; padding: 1rem; border-left: 5px solid #6c757d; margin-bottom: 1rem; }
+    .interactive-link { color: #007bff; text-decoration: underline; font-size: 0.9em; }
   </style>
 </head>
 <body>
@@ -38,16 +39,29 @@
     <option value="Northern">Northern</option>
     <option value="Eastern">Eastern</option>
     <option value="Western">Western</option>
+    <option value="Volta">Volta</option>
   </select>
 
   <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search by name, agency, or status...">
 
   <table id="corruptionTable">
     <tr>
-      <th>Name</th><th>Position Held</th><th>Status</th><th>Agency Involved</th><th>Last Known Action</th><th>Timeline</th><th>Region</th>
+      <th>Name</th><th>Political Party</th><th>Position Held</th><th>Status</th><th>Agency Involved</th><th>Last Known Action</th><th>Timeline</th><th>Region</th><th>Source</th>
     </tr>
-    <!-- Table data rows (same content as before) -->
-    <!-- OMITTED FOR BREVITY: retain all your data rows as-is -->
+    <tr><td>Ken Ofori-Atta</td><td>NPP</td><td>Former Finance Minister</td><td>Interpol Red Notice</td><td>OSP</td><td>Ignored Court Summons</td><td>2023–2025</td><td>Eastern</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Cecilia Dapaah</td><td>NPP</td><td>Former Sanitation Minister</td><td>OSP Investigation</td><td>OSP</td><td>Cash Seizure & Court Filing</td><td>2023–2024</td><td>Greater Accra</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Charles Bissue</td><td>NPP</td><td>Former Presidential Staffer</td><td>Arrest Warrant Issued</td><td>OSP</td><td>Contempt of Court</td><td>2024–2025</td><td>Western</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Mustapha Ussif</td><td>NPP</td><td>Former Executive Director</td><td>Under Investigation</td><td>OSP</td><td>NSF Audit Trail</td><td>2024–2025</td><td>Northern</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Osei Assibey Antwi</td><td>NPP</td><td>Former Director-General</td><td>Under Investigation</td><td>OSP</td><td>Corruption Allegations</td><td>2024–2025</td><td>Ashanti</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Gifty Oware-Mensah</td><td>NPP</td><td>Former Deputy Executive Director</td><td>Under Investigation</td><td>OSP</td><td>NSF Payroll Review</td><td>2024–2025</td><td>Greater Accra</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Ohene Gyan</td><td>NPP</td><td>Former Deputy Executive Director for Operations</td><td>Under Investigation</td><td>OSP</td><td>Ongoing Payroll Audit</td><td>2024–2025</td><td>Greater Accra</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Abraham Bismark Gaise</td><td>NPP</td><td>Former Internal Auditor</td><td>Under Investigation</td><td>OSP</td><td>Alleged Complicity in Payroll Irregularities</td><td>2024–2025</td><td>Greater Accra</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Kwaku D. Agyei</td><td>NPP</td><td>Accounts Officer</td><td>Under Investigation</td><td>OSP</td><td>Financial Record Probe</td><td>2024–2025</td><td>Greater Accra</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Iddrisu Ibn Abubakar</td><td>NPP</td><td>Former Head of Accounts</td><td>Under Investigation</td><td>OSP</td><td>Corruption Allegation – Accounts</td><td>2024–2025</td><td>Northern</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Stephen Kwabena Gyamfi</td><td>NPP</td><td>Koforidua Director, NSA</td><td>Under Investigation</td><td>OSP</td><td>Regional Audit Triggered</td><td>2024–2025</td><td>Eastern</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Price A. Awuku</td><td>NPP</td><td>District Director</td><td>Under Investigation</td><td>OSP</td><td>Financial Audit Request</td><td>2024–2025</td><td>Volta</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Jacob Yawson</td><td>NPP</td><td>MIS Administrator, Northern Region</td><td>Under Investigation</td><td>OSP</td><td>NSF System Access Breach</td><td>2024–2025</td><td>Northern</td><td><a class="interactive-link" href="#">Link</a></td></tr>
+    <tr><td>Chairman Wontumi</td><td>NPP</td><td>Ashanti Regional Chairman</td><td>Under Scrutiny</td><td>OSP</td><td>Mineral Licensing Probe</td><td>2024–2025</td><td>Ashanti</td><td><a class="interactive-link" href="#">Link</a></td></tr>
   </table>
 </div>
 
@@ -65,61 +79,10 @@ function filterByRegion() {
   let region = document.getElementById('regionFilter').value;
   let rows = document.querySelectorAll('#corruptionTable tr:not(:first-child)');
   rows.forEach(row => {
-    row.style.display = region === 'All' || row.children[6].textContent === region ? '' : 'none';
+    row.style.display = region === 'All' || row.children[7].textContent === region ? '' : 'none';
   });
 }
 </script>
-
-<div class="section">
-  <h2>🧾 Key Details</h2>
-  <div class="info-box">
-    <p><strong>OSP:</strong> Office of the Special Prosecutor – investigates corruption in public service.</p>
-    <p><strong>Interpol Red Notice:</strong> Issued for Ken Ofori-Atta for court refusal.</p>
-    <p><strong>Asset Recovery:</strong> Multiple seizures under anti-graft campaign.</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2>📅 Submit a Tip</h2>
-  <form method="POST" enctype="multipart/form-data" action="https://formsubmit.co/anon.gh.tracker@protonmail.com" target="_blank">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-
-    <label for="name">Your Name (Optional):</label><br />
-    <input type="text" id="name" name="name" /><br /><br />
-
-    <label for="role">Your Role:</label><br />
-    <select id="role" name="role">
-      <option value="witness">Witness</option>
-      <option value="journalist">Journalist</option>
-      <option value="whistleblower">Whistleblower</option>
-      <option value="other">Other</option>
-    </select><br /><br />
-
-    <label for="description">Case Description:</label><br />
-    <textarea id="description" name="description" rows="6" required></textarea><br /><br />
-
-    <label for="date">Date of Occurrence:</label><br />
-    <input type="date" id="date" name="date" required /><br /><br />
-
-    <label for="evidence">Upload Supporting Evidence:</label><br />
-    <input type="file" id="evidence" name="evidence" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" /><br /><br />
-
-    <input type="submit" value="Submit Case" />
-  </form>
-</div>
-
-<div class="section">
-  <h2>🎯 Tracker Objectives</h2>
-  <ol>
-    <li>Increase public transparency and engagement.</li>
-    <li>Track government progress on anti-corruption reforms.</li>
-    <li>Support work of journalists, watchdogs, and researchers.</li>
-  </ol>
-</div>
-
-<p style="text-align:center; font-size: 0.9em;">This document is updated weekly. Refer to OSP press briefings for confirmation.</p>
-<p style="text-align:center;"><strong>Live Version:</strong> <a href="https://cypony.github.io/ghana-corruption-tracker" target="_blank">cypony.github.io/ghana-corruption-tracker</a></p>
 
 </body>
 </html>
