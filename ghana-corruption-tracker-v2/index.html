@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ghana Corruption Tracker</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <header>
+        <h1>🇬🇭 Ghana Corruption Prosecution Tracker</h1>
+        <p class="banner">This tracker is maintained by citizen reporters. Updated weekly. All information sourced from public reports and OSP press releases.</p>
+    </header>
+
+    <section class="filters">
+        <label for="statusFilter">Status:</label>
+        <select id="statusFilter">
+            <option value="">All</option>
+            <option value="Fugitive">Fugitive</option>
+            <option value="Ongoing">Ongoing</option>
+            <option value="Cleared">Cleared</option>
+        </select>
+
+        <label for="agencyFilter">Agency:</label>
+        <select id="agencyFilter">
+            <option value="">All</option>
+            <option value="OSP">OSP</option>
+            <option value="Interpol">Interpol</option>
+            <option value="EOCO">EOCO</option>
+        </select>
+    </section>
+
+    <main>
+        <section>
+            <h2>Active Investigations & Prosecutions</h2>
+            <table id="tracker-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position Held</th>
+                        <th>Status</th>
+                        <th>Agency Involved</th>
+                        <th>Last Known Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tracker-body"></tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Unofficial Watchlist</h2>
+            <ul id="watchlist">
+                <li>Former Public Procurement Authority officials</li>
+                <li>2020 COVID-19 procurement deal signatories</li>
+                <li>Ministry of Roads & Highways contract managers (alleged kickbacks)</li>
+            </ul>
+        </section>
+    </main>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">×</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
